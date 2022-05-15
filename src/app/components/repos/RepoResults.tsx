@@ -71,7 +71,7 @@ const ItemWrapper = styled(motion.div)`
   height: 580px;
   overflow-y: scroll;
   box-sizing: border-box;
-  padding: 20px 5px 5px 20px;
+  padding: 20px 10px 10px 20px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   grid-column-gap: 6px;
@@ -80,8 +80,9 @@ const ItemWrapper = styled(motion.div)`
   row-gap: 20px;
   grid-auto-rows: 300px;
   @media screen and (max-width: 325px) {
-    grid-template-columns: 1fr;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
   }
 `;
 

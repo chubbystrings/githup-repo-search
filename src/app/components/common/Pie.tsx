@@ -18,9 +18,9 @@ const PieChart: React.FC<{
         data: [forkCount, stargazers, watchCount, openIssues],
         backgroundColor: [
           "rgba(255, 99, 132)",
+          "rgba(75, 192, 192)",
           "rgba(54, 162, 235)",
           "rgba(255, 206, 86)",
-          "rgba(75, 192, 192)",
         ],
         borderWidth: 0,
       },

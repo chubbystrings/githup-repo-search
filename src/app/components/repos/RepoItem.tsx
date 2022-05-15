@@ -1,43 +1,65 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { VscIssues } from "react-icons/vsc";
+import { BiGitRepoForked } from "react-icons/bi";
+import { AiFillStar, AiFillEye } from "react-icons/ai";
 
 interface Props {
   repo: any;
-  index: number
+  index: number;
 }
 
-
-
 const RepoItem = ({ repo, index }: Props) => {
-  
   return (
-    <AnimatePresence>
-      <UserCard
-        className="card"
-      >
-        <div className="avatar--wrapper">
-          <img src={repo.owner.avatar_url} alt="avatar" />
+    <UserCard className="card">
+      <div className="avatar--wrapper">
+        <img src={repo.owner.avatar_url} alt="avatar" />
+      </div>
+      <div className="repo--info">
+        <small>{repo.name} </small>
+      </div>
+      <div className="stargazers--wrapper">
+        <div className="icon--wrapper">
+          <div className="text-sm" style={{ color: "rgba(255, 99, 132)" }}>
+            <BiGitRepoForked className="text-sm" />
+          </div>
+          <div className="text-sm">{repo.forks_count}</div>
         </div>
-        <div className="repo--info">
-          <small>{repo.name} </small>
+        <div className="icon--wrapper">
+          <div className="text-sm" style={{ color: "rgba(75, 192, 192)" }}>
+            <AiFillStar className="text-sm" />
+          </div>
+          <div className=" text-sm">{repo.stargazers_count}</div>
         </div>
-        <div className="view--profile">
-          <NavLink
-            to={`/repos/${repo.owner.login}/${repo.name}`}
-            className="text-base-content text-opacity-40"
-          >
-            View Repo
-          </NavLink>
+        <div className="icon--wrapper">
+          <div className="text-sm" style={{ color: "rgba(54, 162, 235)" }}>
+            <AiFillEye className="text-sm" />
+          </div>
+          <div className="text-sm">{repo.watchers_count}</div>
         </div>
-      </UserCard>
-    </AnimatePresence>
+        <div className="icon--wrapper">
+          <div className="text-sm" style={{ color: "rgba(255, 206, 86)" }}>
+            <VscIssues className="text-sm" />
+          </div>
+          <div className="text-sm">{repo.open_issues_count}</div>
+        </div>
+      </div>
+      <div className="view--profile">
+        <NavLink
+          to={`/repos/${repo.owner.login}/${repo.name}`}
+          className="text-base-content text-opacity-40"
+        >
+          View
+        </NavLink>
+      </div>
+    </UserCard>
   );
 };
 
 const UserCard = styled(motion.div)`
   width: 100%;
-  height: 100%;
+  height: 300px;
 
   /* bounding box */
 
@@ -59,9 +81,36 @@ const UserCard = styled(motion.div)`
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
+  & .stargazers--wrapper {
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+
+    & .icon--wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 250px) {
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      align-items: center;
+      justify-content: center;
+      top: -40px;
+      transform: translateX(0);
+      left: 5px;
+    }
+  }
+
   & .repo--info {
     display: flex;
     flex-direction: column;
+    width: 100%;
     small {
       color: black;
       font-family: "Sofia Pro";
@@ -69,6 +118,8 @@ const UserCard = styled(motion.div)`
       color: #364354;
       text-align: center;
       font-size: 17px;
+      overflow-wrap: break-word;
+      white-space: initial;
     }
   }
 
@@ -87,8 +138,9 @@ const UserCard = styled(motion.div)`
   }
 
   & a:hover {
-    transition: all 0.2s ease-out;
-    background-color: #e6e5e5;
+    transition: all 0.5s ease-out;
+    background-color: rgb(55 65 81 / 1);
+    color: #fff;
   }
 
   & .avatar--wrapper {
@@ -110,6 +162,11 @@ const UserCard = styled(motion.div)`
     & small {
       text-align: center;
     }
+
+    @media screen and (max-width: 250px) {
+      width: 50px;
+      height: 50px;
+    }
   }
 
   & .view--profile {
@@ -122,10 +179,6 @@ const UserCard = styled(motion.div)`
 
   @media screen and (max-width: 425px) {
     padding: 2px;
-  }
-
-  @media screen and (max-width: 325px) {
-    max-width: 200px;
   }
 `;
 export default RepoItem;

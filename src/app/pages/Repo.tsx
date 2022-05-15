@@ -31,7 +31,7 @@ const User = () => {
               </NavLink>
             </div>
 
-            <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 mb-2 md:gap-8">
+            <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 mb-2 md:gap-8 p-2">
               <div className="custom_card_image mb-6 md:mb-0">
                 <div className="rounded-lg shadow-xl card image-full img--wrapper">
                   <figure>
@@ -55,7 +55,7 @@ const User = () => {
                       href={repoInfo.html_url}
                       target="_blank"
                       rel="noreferrer"
-                      className="btn btn-outline"
+                      className=""
                     >
                       Visit Github Profile
                     </a>
@@ -71,15 +71,19 @@ const User = () => {
                     <BiGitRepoForked className="text-3xl" />
                   </div>
                   <div className="stat-title">Forks Count</div>
-                  <div className=" text-3xl">{repoInfo.forks_count}</div>
+                  <div className=" text-3xl">
+                    {repoInfo.forks_count}
+                  </div>
                 </div>
 
                 <div className="">
-                  <div className=" " style={{ color: "rgba(75, 192, 192)" }}>
+                  <div className="" style={{ color: "rgba(75, 192, 192)" }}>
                     <AiFillStar className="text-3xl" />
                   </div>
                   <div className="stat-title">Stargarzers</div>
-                  <div className=" text-3xl">{repoInfo.stargazers_count}</div>
+                  <div className=" text-3xl">
+                    {repoInfo.stargazers_count}
+                  </div>
                 </div>
 
                 <div className="">
@@ -87,15 +91,19 @@ const User = () => {
                     <AiFillEye className="text-3xl" />
                   </div>
                   <div className="stat-title">Watchers Count</div>
-                  <div className=" text-3xl">{repoInfo.watchers_count}</div>
+                  <div className=" text-3xl">
+                    {repoInfo.watchers_count}
+                  </div>
                 </div>
 
                 <div className="">
-                  <div className=" " style={{ color: "rgba(255, 206, 86)" }}>
+                  <div className="" style={{ color: "rgba(255, 206, 86)" }}>
                     <VscIssues className="text-3xl" />
                   </div>
                   <div className="stat-title">Open Issues</div>
-                  <div className=" text-3xl">{repoInfo.open_issues_count}</div>
+                  <div className="text-3xl">
+                    {repoInfo.open_issues_count}
+                  </div>
                 </div>
               </div>
               <div className="pie--wrapper">
@@ -145,6 +153,11 @@ const UserPage = styled.div`
       height: 150px;
       width: 150px;
     }
+
+    @media screen and (max-width: 200px) {
+      width: 100%;
+    
+    }
   }
 
   & .pie--wrapper {
@@ -155,6 +168,11 @@ const UserPage = styled.div`
       height: 20px;
       width: 200px;
       margin-bottom: 250px;
+    }
+
+    @media screen and (max-width: 250px) {
+      height: 20px;
+      width: 100%;
     }
   }
 
@@ -206,9 +224,18 @@ const UserPage = styled.div`
       flex-wrap: wrap;
       overflow-wrap: break-word;
       white-space: initial;
+      width: 100%;
+
+      & h2 {
+        overflow-wrap: break-word;
+        white-space: initial;
+        width: 100%;
+      }
 
       & small {
         font-size: 10px;
+        overflow-wrap: break-word;
+        white-space: initial;
         overflow-wrap: break-word;
         white-space: initial;
       }

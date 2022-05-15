@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="container mx-auto">
           <div className="flex-none px-2 mx-2 nav_space">
             <FaGithub className="inline pr-2 text-3xl text-white"/>
-            <Link to="/" className="text-lg font-bold align-middle text-white">
+            <Link to="/" className="text-sm font-bold align-middle text-white hidden sm:inline">
               Github Search
             </Link>
           </div>

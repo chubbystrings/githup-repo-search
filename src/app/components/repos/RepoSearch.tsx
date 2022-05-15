@@ -29,7 +29,7 @@ const RepoSearch = () => {
   return (
     <>
       {alert && <Alert />}
-      <div className="bg flex mt-5 pb-2 justify-center box-border ">
+      <div className="bg-w flex mt-5 pb-2 justify-center box-border ">
         <div className="w-6/12">
           <form
             className="relative transition duration-500 ease-out w-full"
@@ -44,7 +44,7 @@ const RepoSearch = () => {
                 placeholder="e.g type 'test' and press enter"
                 value={text}
                 onChange={handleChange}
-                className="block bg-transparent text-search text-xs border-none font-medium md:text-base px-1 sm:px-4 py-3 mt-0 mb-0 outline-none flex-1 flex-shrink flex-grow"
+                className="block bg-transparent text-search text-xs border-none font-medium md:text-base px-1 sm:px-4 py-3 mt-0 mb-0 outline-none flex-1 flex-shrink flex-grow w-full"
               />
               <button className="border-none cursor-pointer bg-transparent flex items-center justify-center rounded-tr-lg rounded-br-lg pr-2">
                 <i>
