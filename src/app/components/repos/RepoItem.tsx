@@ -113,7 +113,7 @@ const UserCard = styled(motion.div)`
     width: 100%;
     small {
       color: black;
-      font-family: "Sofia Pro";
+      font-family: 'Nunito', sans-serif;
       font-style: normal;
       color: #364354;
       text-align: center;
@@ -126,7 +126,7 @@ const UserCard = styled(motion.div)`
   & a,
   small {
     color: black;
-    font-family: "Sofia Pro";
+    font-family: 'Nunito', sans-serif;
     font-style: normal;
     color: #364354;
   }
